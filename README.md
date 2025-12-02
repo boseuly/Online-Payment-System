@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### 프로젝트 정보✔️
 
-## Getting Started
+소비자가 쇼핑몰에 접속하여 상품을 구매하기까지 일련의 모든 과정을 시스템에 녹이는 것을 목표로 하였으며, 특히 온라인 결제 기능을 직접 구현함으로써 결제 시스템에 대한 이해를 높이는 것을 주된 목표로 잡았습니다.
 
-First, run the development server:
+### 액션 아이템🍎
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [ ]  기획 → 동생이 운영하는 온라인 쇼핑몰 벤치마킹하여 구현할 것
+- [ ]  기능
+    - 로그인 - Spring Security 사용
+    - 회원가입
+    - 상품목록
+    - 상품상세
+    - 장바구니
+    - **결제/취소**⭐️ - toss의 결제 API 임시 키 발급하여 사용
+    - 배송지 추가/수정/삭제
+    - 리뷰
+    - 탈퇴
+- [ ]  DB설계 - ERD
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 개발 환경👩🏻‍💻
+- OS : Mac OS
+- Program Language : JAVA 17, React
+- 라이브러리 및 프레임워크 : SpringBoot 3.5.8, Spring Security, Next.js(Node.js 20.18.0)
+- DB Server : Oracle Version 21.3.0.0.0
+- IDE : IntelliJ, Visual Studio Code
+- 형상관리 : GitHub
