@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### 프로젝트 정보**✔️**
 
-## Getting Started
+소비자가 쇼핑몰에 접속하여 상품을 구매하기까지 일련의 모든 과정을 시스템에 녹이는 것을 목표로 하였으며, 특히 온라인 결제 기능을 직접 구현함으로써 온라인 결제 시스템에 대한 이해를 높이는 것을 주된 목표로 잡았습니다.
 
-First, run the development server:
+### 액션 아이템**🍎**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [ ]  기획 → 동생이 운영하는 온라인 쇼핑몰 벤치마킹하여 구현할 것
+- [ ]  기능
+    - 로그인 - Spring Security 사용
+    - 회원가입
+    - 상품목록
+    - 상품상세
+    - 장바구니
+    - **결제/취소**⭐️ - toss의 결제 API 임시 키 발급하여 사용
+    - 배송지 추가/수정/삭제
+    - 리뷰
+    - 탈퇴
+- [ ]  DB설계 - ERD
+    - 회원
+        - 회원아이디
+        - 패스워드
+        - 회원명
+        - 성별
+        - 이메일
+        - 휴대전화
+        - 포인트
+        - 가입일자
+        - 탈퇴여부
+        - 탈퇴일자
+        - 탈퇴사유
+        - 생성일
+        - 수정일
+    - 회원주소
+        - 주소SEQ
+        - 회원아이디
+        - 우편주소
+        - 주소
+        - 상세주소
+        - 수령인 일반전화
+        - 수령인 휴대전화
+        - 생성일
+        - 수정일
+    - 장바구니
+        - 장바구니seq(cart_seq)
+        - 회원ID
+        - 품목코드
+        - 옵션
+        - 수량
+        - 생성일
+        - 수정일
+    - 주문(order)
+        - 주문번호
+        - 회원id
+        - 구매일
+        - 주문자명
+        - 주문자 연락처
+        - 수령자 이름
+        - 배송지 전화번호
+        - 배송지 주소
+        - 결제상태
+        - 결제수단
+        - 포인트 사용액
+        - 총 결제액
+        - 생성일
+        - 수정일
+    - 주문상세(order_detail)
+        - 주문상세번호
+        - 주문번호
+        - 품목코드
+        - 수량
+        - 생성일
+        - 수정일
+    - 상품
+        - 품목코드(상품코드+사이즈)
+        - 상품코드
+        - 사이즈
+        - 가격
+        - 재고수량
+    
+    간단한 결제 가능한 쇼핑몰 구현으로 배송, 쿠폰 등의 정보는 생략
+    
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 개발 환경**👩🏻‍💻**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- OS : Mac OS
+- Program Language : JAVA 17, React
+- 라이브러리 및 프레임워크 : SpringBoot 3.5.8, Spring Security, Next.js(Node.js 20.18.0)
+- DB Server : Oracle Version 21.3.0.0.0
+- IDE : IntelliJ, Visual Studio Code
+- 형상관리 : GitHub
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 문서
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+RED URL: https://www.erdcloud.com/d/XhdQPt5BnxHiCS4oQ
