@@ -15,12 +15,12 @@
 .flex-col-reverse { flex-direction: column-reverse; }
 
 /* Flex 정렬 */
-.j-start { justify-content: flex-start; }
-.j-end { justify-content: flex-end; }
-.j-center { justify-content: center; }
-.j-between { justify-content: space-between; }
-.j-around { justify-content: space-around; }
-.j-evenly { justify-content: space-evenly; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-space-between { justify-content: space-between; }
+.justify-space-around { justify-content: space-around; }
+.justify-space-evenly { justify-content: space-evenly; }
 
 .a-start { align-items: flex-start; }
 .a-end { align-items: flex-end; }
@@ -136,14 +136,19 @@
 .rounded-lg { border-radius: 12px; }
 .rounded-full { border-radius: 9999px; }
 
-
 /* Text */
 .text-center { text-align: center; }
 .text-start { text-align: start; }
 .text-end { text-align: end; }
 .text-bold { font-weight: bold; }
 .text-normal { font-weight: normal; }
+.font-600 {font-weight: 600;}
+.font-500 {font-weight: 500;}
+.font-400 {font-weight: 400;}
 
+/* Color */
+.text-white {color: #FFFF}
+.text-black {color: #0000}
 
 /* margin-all */
 .m-0 { margin: 0rem; }
@@ -477,3 +482,9 @@ padding
 .p-lr-100 { padding-left: 6.25rem; padding-right: 6.25rem; }      
 
 
+
+
+/* Main Font */
+.default_font {
+    font-family : 'Playfair Display',serif
+}

@@ -18,3 +18,41 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/* 햄버거바 */
+.hamburger_container span,
+.hamburger_container p,
+.hamburger_container li {
+    color: white;
+    font-family : 'Playfair Display',serif;
+    
+}
+.hamburger_background {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+.hamburger_container {
+    padding-left: 1.125rem;
+}
+.hamburger_logo_container {
+    width: 10rem;
+}
+.hamburger_container .hamburger_menu {
+    margin-top: 1.875rem;
+}
+.hamburger_menu_list {
+    font-size: .9875rem;
+    color: white;
+    font-weight: 400;
+}
+.d-flex .hamburger_menu_list:nth-last-child(1) {
+    padding-left: 2rem;
+}
+.hamburger_category .hamburger_category_ul li {
+    margin-bottom: .9875rem;
+    cursor: point;
+}
