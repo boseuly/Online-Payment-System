@@ -50,10 +50,58 @@
 .gap-10 { gap: 2.5rem; }
 
 /* Width/Height */
-.w-full { width: 100%; }
-.w-auto { width: auto; }
-.h-full { height: 100%; }
-.h-auto { height: auto; }
+.wd-100 { width: 100%; }
+.wd-auto { width: auto; }
+.wd-10 {width: 10%;}
+.wd-15 {width: 15%;}
+.wd-20 {width: 20%;}
+.wd-30 {width: 30%;}
+.wd-40 {width: 40%;}
+.wd-50 {width: 50%;}
+.wd-60 {width: 60%;}
+.wd-70 {width: 70%;}
+.wd-80 {width: 80%;}
+.wd-90 {width: 90%;}
+
+.wd-5px { width: 0.3125rem; }
+.wd-10px { width: 0.625rem; }
+.wd-15px { width: 0.9375rem; }
+.wd-20px { width: 1.25rem; }
+.wd-25px { width: 1.5625rem; }
+.wd-30px { width: 1.875rem; }
+.wd-35px { width: 2.1875rem; }
+.wd-40px { width: 2.5rem; }
+.wd-45px { width: 2.8125rem; }
+.wd-50px { width: 3.125rem; }
+.wd-55px { width: 3.4375rem; }
+.wd-60px { width: 3.75rem; }
+.wd-65px { width: 4.0625rem; }
+.wd-70px { width: 4.375rem; }
+.wd-75px { width: 4.6875rem; }
+.wd-80px { width: 5rem; }
+.wd-85px { width: 5.3125rem; }
+.wd-90px { width: 5.625rem; }
+.wd-95px { width: 5.9375rem; }
+.wd-100px { width: 6.25rem; }
+.wd-105px { width: 6.5625rem; }   /* 105px */
+.wd-110px { width: 6.875rem; }    /* 110px */
+.wd-115px { width: 7.1875rem; }   /* 115px */
+.wd-120px { width: 7.5rem; }      /* 120px */
+.wd-125px { width: 7.8125rem; }   /* 125px */
+.wd-130px { width: 8.125rem; }    /* 130px */
+.wd-135px { width: 8.4375rem; }   /* 135px */
+.wd-140px { width: 8.75rem; }     /* 140px */
+.wd-145px { width: 9.0625rem; }   /* 145px */
+.wd-150px { width: 9.375rem; }    /* 150px */
+.wd-155px { width: 9.6875rem; }   /* 155px */
+.wd-160px { width: 10rem; }       /* 160px */
+.wd-165px { width: 10.3125rem; }  /* 165px */
+.wd-170px { width: 10.625rem; }   /* 170px */
+.wd-175px { width: 10.9375rem; }  /* 175px */
+.wd-180px { width: 11.25rem; }    /* 180px */
+
+.hg-100 { height: 100%; }
+.hg-auto { height: auto; }
 
 /* Position */
 .p-relative { position: relative; }
@@ -69,6 +117,10 @@
 
 .top-50 { top: 50%; }
 .left-50 { left: 50%; }
+
+.z-index-1 {z-index: 1;}
+.z-index-10 {z-index: 10;}
+.z-index-100 {z-index: 100;}
 
 /* Overflow */
 .overflow-hidden { overflow: hidden; }
@@ -423,3 +475,5 @@ padding
 .p-lr-90 { padding-left: 5.625rem; padding-right: 5.625rem; }     
 .p-lr-95 { padding-left: 5.9375rem; padding-right: 5.9375rem; }   
 .p-lr-100 { padding-left: 6.25rem; padding-right: 6.25rem; }      
+
+
