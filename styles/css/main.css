@@ -146,6 +146,52 @@
 .font-500 {font-weight: 500;}
 .font-400 {font-weight: 400;}
 
+
+/* Font-Size */
+.text-5 { font-size: 0.3125rem !important; }
+.text-10 { font-size: 0.625rem !important; }
+.text-14 {font-size: 0.875rem !important; }
+.text-15 { font-size: 0.9375rem !important; }
+.text-20 { font-size: 1.25rem !important; }
+.text-25 { font-size: 1.5625rem !important; }
+.text-30 { font-size: 1.875rem !important; }
+.text-35 { font-size: 2.1875rem !important; }
+.text-40 { font-size: 2.5rem !important; }
+.text-45 { font-size: 2.8125rem !important; }
+.text-50 { font-size: 3.125rem !important; }
+.text-55 { font-size: 3.4375rem !important; }
+.text-60 { font-size: 3.75rem !important; }
+.text-65 { font-size: 4.0625rem !important; }
+.text-70 { font-size: 4.375rem !important; }
+.text-75 { font-size: 4.6875rem !important; }
+.text-80 { font-size: 5rem !important; }
+.text-85 { font-size: 5.3125rem !important; }
+.text-90 { font-size: 5.625rem !important; }
+.text-95 { font-size: 5.9375rem !important; }
+.text-100 { font-size: 6.25rem !important; }
+
+/* Font-Size */
+.text-5px { font-size:5px !important; }
+.text-10px { font-size:10px !important; }
+.text-15px { font-size:15px !important; }
+.text-20px { font-size:20px !important; }
+.text-25px { font-size:25px !important; }
+.text-30px { font-size:30px !important; }
+.text-35px { font-size:35px !important; }
+.text-40px { font-size:40px !important; }
+.text-45px { font-size:45px !important; }
+.text-50px { font-size:50px !important; }
+.text-55px { font-size:55px !important; }
+.text-60px { font-size:60px !important; }
+.text-65px { font-size:65px !important; }
+.text-70px { font-size:70px !important; }
+.text-75px { font-size:75px !important; }
+.text-80px { font-size:80px !important; }
+.text-85px { font-size:85px !important; }
+.text-90px { font-size:90px !important; }
+.text-95px { font-size:95px !important; }
+.text-100px { font-size:100px !important; }
+
 /* Color */
 .text-white {color: #FFFF}
 .text-black {color: #0000}

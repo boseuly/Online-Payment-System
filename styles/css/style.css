@@ -1,3 +1,7 @@
+/* 헤더 */
+header .logo_box img {
+    max-height: 25px;
+}
 /* 메인 페이지 이미지 */
 .main-body {
     height: 100%;
@@ -42,17 +46,36 @@
     width: 10rem;
 }
 .hamburger_container .hamburger_menu {
-    margin-top: 1.875rem;
+    margin-top: 1.25rem;
 }
 .hamburger_menu_list {
-    font-size: .9875rem;
+    font-size: .9375rem;
     color: white;
     font-weight: 400;
 }
-.d-flex .hamburger_menu_list:nth-last-child(1) {
+/* .d-flex .hamburger_menu_list:nth-last-child(1) {
     padding-left: 2rem;
-}
+} */
 .hamburger_category .hamburger_category_ul li {
-    margin-bottom: .9875rem;
+    margin-bottom: 0.3125rem;
     cursor: point;
+    font-size: 1.25rem;
+}
+/* 아코디언 */
+/* 아코디언 클릭하면 하위 메뉴가 노출되어야 한다. */
+/* 위에 메뉴를 클릭하면 하위 메뉴 스타일이 display:block으로 변경된다. */
+/*  */
+.accordion .accordion_container {
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+    display: none;
+}
+.accordion .accordion_container.open {
+    max-height: 100%;
+    transition: max-height 0.3s ease-in-out;
+    display: block;
+}
+.hamburger_category .hamburger_category_ul ul li {
+    font-size: .875rem;
+    margin-left: .625rem;
 }

@@ -13,11 +13,17 @@ export default function MainHeader({
         <>
             {/* 로그인을 한 상태 */}
             <header className="p-fixed wd-100 z-index-100 ">
-                <div className="d-flex m-10 justify-space-between ">
-                    <div className="pl-50 wd-165px">
+                <div className="d-flex m-15 justify-space-between ">
+                    <div className="logo_box">
                         <img src={"/img/01_logo_white.png"} />
                     </div>
                     <div className="d-flex gap-4">
+                        <div>
+                            <p className="text-15 default_font text-white">Login</p>
+                        </div>
+                        <div>
+                            <p className="text-15 default_font text-white">Join</p>
+                        </div>
                         <div>
                             <FiSearch size={"20"} color="white" />
                         </div>
