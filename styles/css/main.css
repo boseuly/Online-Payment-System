@@ -527,10 +527,11 @@ padding
 .p-lr-95 { padding-left: 5.9375rem; padding-right: 5.9375rem; }   
 .p-lr-100 { padding-left: 6.25rem; padding-right: 6.25rem; }      
 
-
-
-
 /* Main Font */
 .default_font {
     font-family : 'Playfair Display',serif
+}
+
+.cursor-point{
+    cursor: pointer;
 }

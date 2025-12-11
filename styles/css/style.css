@@ -52,19 +52,22 @@ header .logo_box img {
     font-size: .9375rem;
     color: white;
     font-weight: 400;
+    cursor: pointer;
 }
-/* .d-flex .hamburger_menu_list:nth-last-child(1) {
-    padding-left: 2rem;
-} */
+.hamburger_menu_list:hover {
+    color: #797979;
+}
 .hamburger_category .hamburger_category_ul li {
     margin-bottom: 0.3125rem;
     cursor: point;
     font-size: 1.25rem;
+    cursor: pointer;
 }
+.hamburger_category .hamburger_category_ul li:hover {
+    color: #797979;
+}
+
 /* 아코디언 */
-/* 아코디언 클릭하면 하위 메뉴가 노출되어야 한다. */
-/* 위에 메뉴를 클릭하면 하위 메뉴 스타일이 display:block으로 변경된다. */
-/*  */
 .accordion .accordion_container {
     max-height: 0;
     transition: max-height 0.3s ease-in-out;
@@ -78,4 +81,8 @@ header .logo_box img {
 .hamburger_category .hamburger_category_ul ul li {
     font-size: .875rem;
     margin-left: .625rem;
+    cursor: pointer;
+}
+.hamburger_category .hamburger_category_ul ul li:hover {
+    color: #797979;
 }

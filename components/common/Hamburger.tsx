@@ -48,7 +48,7 @@ export default function Hamburger({
                         </div>
                         <div className="d-flex gap-4 mr-10">
                             <div onClick={setHamburgerOpenYn}>
-                                <TfiClose size={"20"} color="white" />
+                                <TfiClose size={"20"} color="white" className="cursor-point" />
                             </div>
                         </div>
                     </div>

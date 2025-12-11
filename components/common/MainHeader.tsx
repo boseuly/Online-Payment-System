@@ -19,20 +19,20 @@ export default function MainHeader({
                     </div>
                     <div className="d-flex gap-4">
                         <div>
-                            <p className="text-15 default_font text-white">Login</p>
+                            <p className="text-15 default_font text-white cursor-point">Login</p>
                         </div>
                         <div>
-                            <p className="text-15 default_font text-white">Join</p>
+                            <p className="text-15 default_font text-white cursor-point">Join</p>
                         </div>
                         <div>
-                            <FiSearch size={"20"} color="white" />
+                            <FiSearch size={"20"} color="white" className="cursor-point"/>
                         </div>
                         <div>
-                            <FiShoppingCart size={"20"} color="white" />
+                            <FiShoppingCart size={"20"} color="white" className="cursor-point" />
                         </div>
                         { !hamburgerOpenYn ? (
                         <div onClick={setHamburgerOpenYn}>
-                            <FiMenu size={"20"} color="white" />
+                            <FiMenu size={"20"} color="white"  className="cursor-point"/>
                         </div>
                         ) : <div className="pl-15"></div>}
                         
