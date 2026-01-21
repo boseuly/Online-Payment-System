@@ -1,6 +1,8 @@
+"use client";
+import { useRouter } from "next/navigation"; 
+import { useState, useEffect } from "react";
 import { FiMenu, FiShoppingCart, FiSearch } from "react-icons/fi";
 
-import { useState, useEffect } from "react";
 
 export default function MainHeader({
     hamburgerOpenYn,
@@ -9,6 +11,14 @@ export default function MainHeader({
     hamburgerOpenYn: boolean;
     setHamburgerOpenYn: () => void;
 }) {
+
+    const router = useRouter();
+
+    // const handleClick = (e: any) => {
+    //     e.preventDefault()
+    //     router.push(href)
+    // }
+
     return (
         <>
             {/* 로그인을 한 상태 */}
@@ -19,23 +29,27 @@ export default function MainHeader({
                     </div>
                     <div className="d-flex gap-4">
                         <div>
-                            <p className="text-15 default_font text-white cursor-point">Login</p>
+                            <p className="text-15 default_font text-white cursor-point" onClick={() => {
+                                router.push('/customer/login')
+                            }}>Login</p>
                         </div>
                         <div>
-                            <p className="text-15 default_font text-white cursor-point">Join</p>
+                            <p className="text-15 default_font text-white cursor-point" onClick={() => {
+                                router.push('/customer/join')
+                            }}>Join</p>
                         </div>
                         <div>
-                            <FiSearch size={"20"} color="white" className="cursor-point"/>
+                            <FiSearch size={"20"} color="white" className="cursor-point" />
                         </div>
                         <div>
                             <FiShoppingCart size={"20"} color="white" className="cursor-point" />
                         </div>
-                        { !hamburgerOpenYn ? (
-                        <div onClick={setHamburgerOpenYn}>
-                            <FiMenu size={"20"} color="white"  className="cursor-point"/>
-                        </div>
+                        {!hamburgerOpenYn ? (
+                            <div onClick={setHamburgerOpenYn}>
+                                <FiMenu size={"20"} color="white" className="cursor-point" />
+                            </div>
                         ) : <div className="pl-15"></div>}
-                        
+
                     </div>
                 </div>
             </header>

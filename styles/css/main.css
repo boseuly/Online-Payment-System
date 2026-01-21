@@ -535,3 +535,7 @@ padding
 .cursor-point{
     cursor: pointer;
 }
+
+.default_input {
+    outline-color: #171717;
+}
