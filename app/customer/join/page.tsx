@@ -80,7 +80,7 @@ export default function Join() {
                 </div>
                 <div>
                     <button type="submit">가입</button>
-                    <button onClick={() => router.push("/")}>취소</button>
+                    <button type="button" onClick={() => router.push("/")}>취소</button>
                 </div>
 
             </form>

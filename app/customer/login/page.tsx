@@ -58,7 +58,7 @@ export default function Login () {
                 </div>
                 <div>
                     <button type="submit">로그인</button>
-                    <button onClick={() => {
+                    <button type="button" onClick={() => {
                         router.push("/")
                     }}>홈으로</button>
                 </div>
