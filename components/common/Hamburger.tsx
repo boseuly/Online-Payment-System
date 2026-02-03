@@ -42,7 +42,7 @@ export default function Hamburger({
         <>
             <div className="hamburger_container hamburger_background">
                 <div className="hamburger_header">
-                    <div className="d-flex mt-15 justify-space-between ">
+                    <div className="d-flex mt-15 flex-justify-space-between ">
                         <div className="hamburger_logo_container">
                             <img className="wd-100" src={"/img/01_logo_white.png"} />
                         </div>

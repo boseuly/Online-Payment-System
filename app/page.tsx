@@ -1,15 +1,12 @@
 "use client";
-import Image from "next/image";
 import MainHeader from "../components/common/MainHeader";
 import "../styles/css/main.css";
 import "../styles/css/style.css";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { useState } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Hamburger from "@/components/common/Hamburger";
 
 export default function Home() {
@@ -64,7 +61,6 @@ export default function Home() {
         />
       )}
 
-      {/* footer */}
     </>
   );
 }
