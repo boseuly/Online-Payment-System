@@ -39,10 +39,11 @@ export default function Login () {
             });
             const auth = res.headers.get("authorization");
             const refresh = res.headers.get("authorization-refresh");
-
-            localStorage.setItem("accessToken", auth ?? "");        // accessToken 값
-            localStorage.setItem("refreshToken", refresh ?? "");    // refreshToken 값
-            router.push("/");
+            if (auth && refresh) {
+                localStorage.setItem("accessToken", auth ?? "");        // accessToken 값
+                localStorage.setItem("refreshToken", refresh ?? "");    // refreshToken 값
+                router.push("/");
+            }
 
         } catch(error) {
             notify.error("로그인 실패");
@@ -73,7 +74,7 @@ export default function Login () {
                         <div className="d-flex flex-align-center flex-justify-center p-15 text-13">
                             <a href="" className="text-14 color-dark-gray text-center p-lr-10">아이디 찾기</a>
                             <a href="" className="text-14 color-dark-gray border-left-1-gray text-center p-lr-10">비밀번호 찾기</a>
-                            <a href="" className="text-14 color-dark-gray border-left-1-gray text-center p-lr-10">회원가입</a>
+                            <a href="" className="text-14 color-dark-gray border-left-1-gray text-center p-lr-10" onClick={() => router.push("/customer/join")}>회원가입</a>
                         </div>
                     </div>
 

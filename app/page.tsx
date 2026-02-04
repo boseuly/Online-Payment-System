@@ -1,7 +1,5 @@
 "use client";
 import MainHeader from "../components/common/MainHeader";
-import "../styles/css/main.css";
-import "../styles/css/style.css";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import { useState } from "react";
@@ -12,7 +10,6 @@ import Hamburger from "@/components/common/Hamburger";
 export default function Home() {
   // 햄버거바 오픈 트리거
   const [hamburgerOpenYn, setHamburgerOpenYn] = useState(false);
-
 
   return (
     <>
