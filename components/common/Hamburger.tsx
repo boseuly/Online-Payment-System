@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FiMenu, FiShoppingCart, FiSearch, FiX } from "react-icons/fi";
 import { TfiClose } from "react-icons/tfi";
+import instanceAcf from "@/util/axiosInterceptors";
+import {useQuery} from "@tanstack/react-query";
 
 export default function Hamburger({
     hamburgerOpenYn,
@@ -13,6 +14,7 @@ export default function Hamburger({
 
     type AccordionKeys = "shop" | "contactUs" | "sns" | "csCenter" | "bankInfo";
 
+
     const [accordion, setAccordion] = useState(
         {
             "shop": false,
@@ -21,6 +23,21 @@ export default function Hamburger({
             "csCenter": false,
             "bankInfo": false
         });
+
+    // type AccordionKeys 에 카테고리 parent=null인 것들을 넣어준다.
+    const accordionList = useQuery({
+        queryKey: ["ACCORDION_LIST"],
+        queryFn: async () => {
+            const { data } = await instanceAcf.get("/api/v1/category/all")
+            return data;
+        },
+        gcTime: Infinity,   // 이전의 cacheTime이 gcTime으로 변경
+        staleTime: Infinity,
+        refetchOnWindowFocus: false,
+        select: (data) => data
+    })
+
+
     
     // 아코디언 클릭하면 해당 값이 변경되어야 한다. 
     const handleAccordion = (menu: AccordionKeys) => {
@@ -31,10 +48,6 @@ export default function Hamburger({
             ...prev,
             [menu] : !prev[menu]
         }));
-
-        // accordion값을 순회하면서 
-        console.log(accordion);
-    
     }
 
 

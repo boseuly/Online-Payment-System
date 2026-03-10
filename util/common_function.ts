@@ -1,5 +1,5 @@
 // 요청 fetch
-export async function apiFetch(input: string, init: RequestInit = {}) {
+export async function apiFetch(url: string, init: RequestInit = {}) {
     const accessToken = localStorage.getItem("accessToken");
 
     /**
@@ -15,7 +15,7 @@ export async function apiFetch(input: string, init: RequestInit = {}) {
         ? accessToken
         : `Bearer ${accessToken}`);
 
-    const res = await fetch(input, {...init, headers});
+    const res = await fetch(url, {...init, headers});
 
     return res;
 }

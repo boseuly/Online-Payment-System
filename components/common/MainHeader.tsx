@@ -21,7 +21,6 @@ export default function MainHeader({
 
     // 토큰 저장 및 변경 감지 업데이트
     useEffect(() => {
-        console.log('accessToken: ', accessToken);
         const sync = () => setAccessToken(localStorage.getItem("accessToken")); // localStorage 는 모든 탭에서 공유가 되고
         // 탭a 에서 로그아웃했을 때 localStorage.removeItem("accessToken")을 해주면
         window.addEventListener("storage", sync);

@@ -40,7 +40,6 @@ export default function Join() {
     );
 
     const onSubmit = async (data: SignupForm) => {
-        console.log(data)
         try {
             const response = await fetch(`/api/v1/customer/join`, {
                 method: "POST",
@@ -63,7 +62,6 @@ export default function Join() {
 
     // 전화번호 올바른 입력 확인
     function checkNumber(event: React.FormEvent<HTMLInputElement>) {
-        console.log('event : ',event.target);
         const data = event.target as HTMLInputElement;
         // 숫자형식인지 확인
         if((Number(data.value) >= 0 && Number(data.value) <= 9) ) {

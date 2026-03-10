@@ -27,7 +27,7 @@ export default function Login () {
         defaultValues: initForm
     })
 
-    const onSubmit = async (data: FormValue)=> {
+    const onSubmit = async (data: FormValue) => {
         try {
             const res = await fetch(`/api/v1/auth/login`,{
                 method: "POST",
@@ -37,15 +37,18 @@ export default function Login () {
                 },
                 body: JSON.stringify(data)
             });
-            const auth = res.headers.get("authorization");
-            const refresh = res.headers.get("authorization-refresh");
-            if (auth && refresh) {
-                localStorage.setItem("accessToken", auth ?? "");        // accessToken 값
-                localStorage.setItem("refreshToken", refresh ?? "");    // refreshToken 값
-                router.push("/");
+            if (res.ok) {
+                const auth = res.headers.get("authorization");
+                const refresh = res.headers.get("authorization-refresh");
+                if (auth && refresh) {
+                    localStorage.setItem("accessToken", auth ?? "");        // accessToken 값
+                    localStorage.setItem("refreshToken", refresh ?? "");    // refreshToken 값
+                    router.push("/");
+                }
+            } else {
+                notify.error("아이디 또는 패스워드를 확인해주세요.");
             }
-
-        } catch(error) {
+        } catch(e) {
             notify.error("로그인 실패");
         }
     }

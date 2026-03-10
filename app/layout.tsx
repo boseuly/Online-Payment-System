@@ -5,6 +5,9 @@ import "../styles/css/main.css";
 import "../styles/css/style.css";
 import 'rsuite/dist/rsuite.css';
 import ToastProvider from "@/util/ToastProvider";
+import {QueryClient} from "@tanstack/query-core";
+import {QueryClientProvider} from "@tanstack/react-query";
+import Providers from "@/app/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,6 +24,8 @@ export const metadata: Metadata = {
   description: "패스 미 바이",
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,8 +36,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}`}
       >
-        {children}
+      <Providers>
+      {children}
         <ToastProvider />
+      </Providers>
       </body>
     </html>
   );
