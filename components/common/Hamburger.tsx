@@ -1,53 +1,52 @@
 "use client";
-import { useEffect, useState } from "react";
-import { TfiClose } from "react-icons/tfi";
+import {useEffect, useState} from "react";
+import {TfiClose} from "react-icons/tfi";
 import instanceAcf from "@/util/axiosInterceptors";
 import {useQuery} from "@tanstack/react-query";
+import {useRouter} from "next/navigation";
+import {router} from "next/client";
+
+type accordionType = {
+    categoryCode: string;
+    categoryName: string;
+    categoryValue: string | null;
+    parentCode: string | null;
+    sort: number;
+}
 
 export default function Hamburger({
-    hamburgerOpenYn,
-    setHamburgerOpenYn,
-}: {
+                                      hamburgerOpenYn,
+                                      setHamburgerOpenYn,
+                                  }: {
     hamburgerOpenYn: boolean;
     setHamburgerOpenYn: () => void;
 }) {
+    const [csAccordion, setCsAccordion] = useState<boolean>(false);
+    const router = useRouter();
 
-    type AccordionKeys = "shop" | "contactUs" | "sns" | "csCenter" | "bankInfo";
-
-
-    const [accordion, setAccordion] = useState(
-        {
-            "shop": false,
-            "contactUs": false,
-            "sns": false,
-            "csCenter": false,
-            "bankInfo": false
-        });
-
+    // const [etcAccordion, setEtcAccordion] = useState(
+    //     {
+    //         "csCenter": false,
+    //         "bankInfo": false
+    //     });
     // type AccordionKeys 에 카테고리 parent=null인 것들을 넣어준다.
     const accordionList = useQuery({
         queryKey: ["ACCORDION_LIST"],
         queryFn: async () => {
-            const { data } = await instanceAcf.get("/api/v1/category/all")
+            const {data} = await instanceAcf.get("/api/v1/category/all")
             return data;
         },
         gcTime: Infinity,   // 이전의 cacheTime이 gcTime으로 변경
         staleTime: Infinity,
         refetchOnWindowFocus: false,
-        select: (data) => data
-    })
+        select: (data) => data.data
+    });
+    const [openCategory, setOpenCategory] = useState<string | null>();
 
-
-    
-    // 아코디언 클릭하면 해당 값이 변경되어야 한다. 
-    const handleAccordion = (menu: AccordionKeys) => {
-        // menu값과 openAccordion의 키값을 비교해서 
-        // 같은 키값을 갖는 메뉴의 value를 !value로 변경해줘야 한다.
-
-        setAccordion((prev) => ({
-            ...prev,
-            [menu] : !prev[menu]
-        }));
+    // 아코디언 클릭하면 해당 값이 변경되어야 한다.
+    const handleAccordion = (menu: string) => {
+        // 현재 클릭된 Accordion의 1depth 값을 저장한다.
+        setOpenCategory(prev => prev === menu ? null : menu);
     }
 
 
@@ -57,20 +56,16 @@ export default function Hamburger({
                 <div className="hamburger_header">
                     <div className="d-flex mt-15 flex-justify-space-between ">
                         <div className="hamburger_logo_container">
-                            <img className="wd-100" src={"/img/01_logo_white.png"} />
+                            <img className="wd-100" src={"/img/01_logo_white.png"}/>
                         </div>
                         <div className="d-flex gap-4 mr-10">
                             <div onClick={setHamburgerOpenYn}>
-                                <TfiClose size={"20"} color="white" className="cursor-point" />
+                                <TfiClose size={"20"} color="white" className="cursor-point"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="hamburger_menu">
-                    {/* <div className="d-flex">
-                        <span className="hamburger_menu_list default_font">Login</span>
-                        <span className="hamburger_menu_list default_font">Join</span>
-                    </div> */}
                     <div className="d-flex flex-col">
                         <span className="hamburger_menu_list default_font">MY PAGE</span>
                         <span className="hamburger_menu_list default_font">ORDER</span>
@@ -81,41 +76,44 @@ export default function Hamburger({
 
                     <div className="hamburger_category">
                         <ul className="hamburger_category_ul accordion">
-                            <li className="hamburger_category_li">ABOUT</li>
-                            <li onClick={() => handleAccordion("shop")}>SHOP</li>
-                            {/* Shop 하위 리스트 */}
-                            <ul className={`accordion_container ${accordion.shop && "open"}`}>
-                                <li>ALL</li>
-                                <li>RINGS</li>
-                                <li>BRACELETS</li>
-                                <li>NECKLACE</li>
-                                <li>EARRINGS</li>
-                                <li>ETC</li>
-                                <li>COLLECTION</li>
-                                <li>CUSTOM</li>
-                                <li>WOMENT</li>
-                            </ul>
-                            <li onClick={() => handleAccordion("contactUs")}>CONTACT US</li>
-                            {/* CONTACT US 하위 리스트 */}
-                            <ul className={`accordion_container ${accordion.contactUs && "open"}`}>
-                                <li>NOTICE</li>
-                                <li>REVIEW</li>
-                                <li>Q&A</li>
-                                <li>FAQ</li>
-                            </ul>
-                            <li onClick={() => handleAccordion("sns")}>SNS</li>
-                            {/* SNS 하위 리스트 */}
-                            <ul className={`accordion_container ${accordion.sns && "open"}`}>
-                                <li>Instagram</li>
-                            </ul>
-                                <li className="text-15 mt-20" onClick={() => handleAccordion("csCenter")}>CS CENTER</li>
+                            {/* 카테고리 리스트를 map을 통해서 보여준다. */}
+                            {!(accordionList.isLoading || accordionList.isFetching)
+                                && accordionList.data.filter((d: accordionType) => d.parentCode == null)
+                                    .map((item: accordionType) => {
+                                        const isOpen = openCategory === item.categoryCode;
+                                        return (<>
+                                                {/* 1뎁스*/}
+                                                <li key={item.categoryCode}
+                                                    onClick={() => {
+                                                        // 만약 1뎁스에서 끝나는 거라면 링크 타고 이동해야 됨
+                                                        const subCategory: [] = accordionList.data.filter((d: accordionType) => d.parentCode == item.categoryCode)
+                                                        // 임시로 # 으로 이동
+                                                        subCategory.length == 0 ? window.location.href = "#" : handleAccordion(item.categoryCode)
+                                                    } }>
+                                                    <div>{item.categoryName}</div>
+                                                    {isOpen && (
+                                                        <ul>
+                                                            {accordionList.data.filter((sub: accordionType) => sub.parentCode === item.categoryCode)
+                                                                .map((sub: accordionType) => (
+                                                                    <li key={sub.categoryValue}>
+                                                                        {sub.categoryName}
+                                                                    </li>
+                                                                ))}
+                                                        </ul>
+                                                    )}
+                                                </li>
+                                            </>
+                                        )
+                                    })
+                            }
+                            <li className="text-15 mt-20" onClick={() => csAccordion ? setCsAccordion(false) : setCsAccordion(true)}>CS CENTER</li>
                             {/* CS CENTER 하위 리스트 */}
-                            <ul className={`accordion_container ${accordion.csCenter && "open"}`}>
+                            <ul className={`accordion_container ${csAccordion && "open"}`}>
                                 <li>
                                     <p className="call">
                                         <a href="tel:010-2029-5309"> 010-2029-5309</a>
                                     </p>
-                                    <p><strong>open</strong>  11:00 A.M~ 19:00 P.M<br />
+                                    <p><strong>open</strong> 11:00 A.M~ 19:00 P.M<br/>
                                         <strong>lunch</strong> 12:00 P.M ~ 13:00 P.M</p>
                                     <p>SAT, SUN, HOLIDAY closed</p>
                                 </li>
@@ -125,7 +123,6 @@ export default function Hamburger({
 
                     </div>
                 </div>
-
             </div>
         </>
     );
