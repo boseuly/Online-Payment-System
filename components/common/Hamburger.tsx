@@ -22,18 +22,11 @@ export default function Hamburger({
     setHamburgerOpenYn: () => void;
 }) {
     const [csAccordion, setCsAccordion] = useState<boolean>(false);
-    const router = useRouter();
 
-    // const [etcAccordion, setEtcAccordion] = useState(
-    //     {
-    //         "csCenter": false,
-    //         "bankInfo": false
-    //     });
-    // type AccordionKeys 에 카테고리 parent=null인 것들을 넣어준다.
-    const accordionList = useQuery({
+    const categoryList = useQuery({
         queryKey: ["ACCORDION_LIST"],
         queryFn: async () => {
-            const {data} = await instanceAcf.get("/api/v1/category/all")
+            const {data} = await instanceAcf.get("/api/v1/categories")
             return data;
         },
         gcTime: Infinity,   // 이전의 cacheTime이 gcTime으로 변경
@@ -45,8 +38,7 @@ export default function Hamburger({
 
     // 아코디언 클릭하면 해당 값이 변경되어야 한다.
     const handleAccordion = (menu: string) => {
-        // 현재 클릭된 Accordion의 1depth 값을 저장한다.
-        setOpenCategory(prev => prev === menu ? null : menu);
+        setOpenCategory(prev => prev === menu ? null : menu);   // 현재 클릭한 1뎁스를 넣는다.
     }
 
 
@@ -71,14 +63,15 @@ export default function Hamburger({
                         <span className="hamburger_menu_list default_font">ORDER</span>
                     </div>
                     <div className="mt-20 mb-20">
+                        {/* cart에 대한 값도 조회해야 됨*/}
                         <span className="hamburger_menu_list default_font">CART(0)</span>
                     </div>
 
                     <div className="hamburger_category">
                         <ul className="hamburger_category_ul accordion">
                             {/* 카테고리 리스트를 map을 통해서 보여준다. */}
-                            {!(accordionList.isLoading || accordionList.isFetching)
-                                && accordionList.data.filter((d: accordionType) => d.parentCode == null)
+                            {!(categoryList.isLoading || categoryList.isFetching)
+                                && categoryList.data.filter((d: accordionType) => d.parentCode == null)
                                     .map((item: accordionType) => {
                                         const isOpen = openCategory === item.categoryCode;
                                         return (<>
@@ -86,16 +79,16 @@ export default function Hamburger({
                                                 <li key={item.categoryCode}
                                                     onClick={() => {
                                                         // 만약 1뎁스에서 끝나는 거라면 링크 타고 이동해야 됨
-                                                        const subCategory: [] = accordionList.data.filter((d: accordionType) => d.parentCode == item.categoryCode)
+                                                        const subCategory: [] = categoryList.data.filter((d: accordionType) => d.parentCode == item.categoryCode)
                                                         // 임시로 # 으로 이동
                                                         subCategory.length == 0 ? window.location.href = "#" : handleAccordion(item.categoryCode)
                                                     } }>
                                                     <div>{item.categoryName}</div>
                                                     {isOpen && (
                                                         <ul>
-                                                            {accordionList.data.filter((sub: accordionType) => sub.parentCode === item.categoryCode)
+                                                            {categoryList.data.filter((sub: accordionType) => sub.parentCode === item.categoryCode)
                                                                 .map((sub: accordionType) => (
-                                                                    <li key={sub.categoryValue}>
+                                                                    <li key={sub.categoryValue} onClick={() => window.location.href = "/api/v1/products/" + sub.categoryValue}>
                                                                         {sub.categoryName}
                                                                     </li>
                                                                 ))}
