@@ -86,3 +86,40 @@ header .logo_box img {
 .hamburger_category .hamburger_category_ul ul li:hover {
     color: #797979;
 }
+.hamburger_category .hamburger_category_ul ul a {
+    text-underline: none;
+}
+.hamburger_category .hamburger_category_ul ul a:hover {
+    color: #797979;
+    text-underline: none;
+}
+
+/*================
+    상품 리스트
+ ================*/
+.pd_list {
+    display: table;
+}
+[class*="grid"] > li {
+    display: inline-block;
+    margin: 0 0 14px;
+    vertical-align: top;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+    padding: .5rem;
+}
+.pd_list .description p {
+    font-family: "Spoqa Han Sans",sans-serif !important;
+    padding-top: .7rem;
+}
+@media (min-width: 768px) {
+    [class*="grid"] > li {
+        width: 25%;
+    }
+}
+@media (max-width: 767px) {
+    [class*="grid"] > li {
+        width: 50%
+    }
+}

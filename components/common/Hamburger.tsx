@@ -1,10 +1,10 @@
 "use client";
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import {TfiClose} from "react-icons/tfi";
 import instanceAcf from "@/util/axiosInterceptors";
 import {useQuery} from "@tanstack/react-query";
-import {useRouter} from "next/navigation";
-import {router} from "next/client";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type accordionType = {
     categoryCode: string;
@@ -22,6 +22,7 @@ export default function Hamburger({
     setHamburgerOpenYn: () => void;
 }) {
     const [csAccordion, setCsAccordion] = useState<boolean>(false);
+    const router = useRouter();
 
     const categoryList = useQuery({
         queryKey: ["ACCORDION_LIST"],
@@ -74,8 +75,7 @@ export default function Hamburger({
                                 && categoryList.data.filter((d: accordionType) => d.parentCode == null)
                                     .map((item: accordionType) => {
                                         const isOpen = openCategory === item.categoryCode;
-                                        return (<>
-                                                {/* 1뎁스*/}
+                                        return (
                                                 <li key={item.categoryCode}
                                                     onClick={() => {
                                                         // 만약 1뎁스에서 끝나는 거라면 링크 타고 이동해야 됨
@@ -88,14 +88,16 @@ export default function Hamburger({
                                                         <ul>
                                                             {categoryList.data.filter((sub: accordionType) => sub.parentCode === item.categoryCode)
                                                                 .map((sub: accordionType) => (
-                                                                    <li key={sub.categoryValue} onClick={() => window.location.href = "/api/v1/products/" + sub.categoryValue}>
-                                                                        {sub.categoryName}
+                                                                    <li key={sub.categoryCode} onClick={setHamburgerOpenYn}>
+                                                                        <Link className="text-white" href={`/product/list?categoryCode=${sub.categoryCode}`}>
+                                                                            {sub.categoryName}
+                                                                        </Link>
                                                                     </li>
+
                                                                 ))}
                                                         </ul>
                                                     )}
                                                 </li>
-                                            </>
                                         )
                                     })
                             }
