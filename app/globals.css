@@ -57,3 +57,17 @@ input, textarea {
   outline: none;
   font: inherit;
 }
+select {
+  -webkit-appearance: none; /* 크롬, 사파리 */
+  -moz-appearance: none;    /* 파이어폭스 */
+  appearance: none;         /* 표준 */
+
+  border: none;
+  outline: none;
+  background: none;
+
+  padding: 0;
+  margin: 0;
+  appearance: none;
+
+}

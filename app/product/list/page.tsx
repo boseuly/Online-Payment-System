@@ -1,7 +1,7 @@
 "use client"
 import {useQuery} from "@tanstack/react-query";
 import instanceAcf from "../../../util/axiosInterceptors";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import { useSearchParams } from "next/navigation";
 import MainHeader from "@/components/common/MainHeader";
 import Link from "next/link";
@@ -71,7 +71,7 @@ export default function ProductList() {
                     categoryInfo?.data ? categoryInfo?.data?.categoryName : ""}
             </div>
             {/* 상품 카테고리명 노출 공간 END */}
-            <div className="p-tb-40 p-25 p-lr-15">
+            <div className="p-tb-40 p-lr-15">
                 <div>
                     <ul className="pd_list grid wd-100">
                         {!(productList?.isLoading || productList?.isFetching)

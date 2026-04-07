@@ -49,7 +49,7 @@ export default function MainHeader({
     return (
         <>
             {/* 로그인을 한 상태 */}
-            <header className="position-fixed wd-100 z-index-100 top-0">
+            <header className="main_header position-fixed wd-100 z-index-100 top-0">
                 <div className="d-flex m-15 flex-justify-space-between ">
                     <div className="logo_box">
                         <img src={`${color == "black" ? "/img/02_logo_black.png" : "/img/01_logo_white.png"}`}/>
